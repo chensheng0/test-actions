@@ -2,7 +2,6 @@ name: test
 on:
   push:
     tags:
-      - 'v*'
 jobs:
   amd64:
     name: build on amd64
@@ -13,4 +12,4 @@ jobs:
         id: version
         run: |
           echo $(git rev-parse --short HEAD)
-          echo $(git tag --contains HEAD | sed 's/v//g')
+          echo $(git tag --contains HEAD)
