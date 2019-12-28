@@ -13,5 +13,4 @@ jobs:
         id: version
         run: |
           echo $(git rev-parse --short HEAD)
-          echo ${{ github.ref }}
-          echo $(git tag --contains HEAD)
+          echo $(git tag --contains HEAD | sed 's/v//g')
