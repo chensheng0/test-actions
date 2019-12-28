@@ -1,0 +1,16 @@
+name: test
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  amd64:
+    name: build on amd64
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: version
+        id: version
+        run: |
+          echo $(git rev-parse --short HEAD)
+          echo ${{ github.ref }}
